@@ -56,3 +56,8 @@ export { default as processFileUploads } from './processFileUploads';
 export const GraphQLUpload = runtimeSupportsUploads
   ? (require('graphql-upload').GraphQLUpload as GraphQLScalarType)
   : undefined;
+
+// generateSchemaHash function is exported to allow registration of
+// EngineReportingAgent when using custom HTTP server instead of ApolloServer
+// (integrating using runHttpQuery)
+export { generateSchemaHash } from './utils/runtimeSupportsUploads';
